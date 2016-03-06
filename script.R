@@ -16,11 +16,22 @@ radius <- "5km"
 
 search <- "q"
 
+data <- fromJSON(paste0("https://www.googleapis.com/youtube/analytics/v1/reports",
+                        "&key=", key,
+                        "&start-date=2016-02-10",
+                        "&end-date=2016-02-20",
+                        "&id=Kpoo6M3S9E8",
+                        "&metrics=views"))
 
+data <- fromJSON(paste0("https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Kpoo6M3S9E8",
+              "&key=", key, "&start-date=2016-02-20&end-date=2016-02-25"))
 
 url <- paste0("https://www.googleapis.com/youtube/v3/videos?part=snippet", 
-              "&chart=mostRecent",
+              "&chart=mostPopular",
               "&location=", location,
               "&locationRadius=", radius,
               "&maxResults=1",
               "&fields=items", "&key=", key)
+
+
+data <- read.csv <- (url)
