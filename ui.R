@@ -25,9 +25,9 @@ shinyUI(fluidPage(theme = "bootstrap.css",
                   min = 1, max = 50, value = 15),
       br(), 
       # Widget 2: Radio Button for miles or kilometers 
-      radioButtons("distance", 
+      radioButtons("units", 
                   label =  "Select miles or kilometers ", 
-                  choices =c("Miles", "Kilometers"),
+                  choices =c("Miles" = "mi", "Kilometers" = "km"),
                   selected = "Miles")
 
       ),
@@ -37,7 +37,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
       br(),
       # Panel Tabset
       tabsetPanel(type="tab", 
-                  tabPanel("Map", plotOutput("you_map"))
+                  tabPanel("Map", leafletOutput("map"))
 
       )
       

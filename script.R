@@ -3,34 +3,31 @@
 library(jsonlite)
 library(shiny)
 library(dplyr)
-library(leaflet)
-library(plotly)
 library(stringr)
 
-#youtube api dev key
-key <- "AIzaSyAFot4QVTGFxQTMZB8_hUxIzOqQQ-WnxQI"
+###############################
+# YOUTUBE API STUFF
+###############################
 
-#base url for youtube api
-base_url <- "https://www.googleapis.com/youtube/v3/videos"
-
-#geolocation given in a csv format
-location <- "29.7604,-95.3698" #csv's
-
-#radius of the circle aroudn the location
-radius <- "5km"
-
-#the search that the user wants
-search <- "meme memez" %>% 
-  str_replace(" ", "+")
-
-#number of results that are given
-n <- 20 
-
-url <- paste0("https://www.googleapis.com/youtube/v3/search?part=snippet", 
-              "&location=", location,
-              "&locationRadius=", radius,
-              "&maxResults=", n,
-              "&q=", search,
-              "&type=video",
-              "&fields=items",
-              "&key=", key)
+get_data <- function(location, radius, units, n, search){
+  
+  search <- search %>% 
+    str_replace(" ", "+")
+  base_url <- "https://www.googleapis.com/youtube/v3/search"
+  key <- "AIzaSyAFot4QVTGFxQTMZB8_hUxIzOqQQ-WnxQI"
+  
+  url <- paste0(base_url,
+                "?part=snippet", 
+                "&location=", location,
+                "&locationRadius=", radius, units,
+                "&maxResults=", n,
+                "&q=", search,
+                "&type=video",
+                "&fields=items",
+                "&key=", key)
+  
+  data <- fromJSON(url) %>% 
+    as.data.frame() %>% 
+    
+  return()
+}
