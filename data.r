@@ -47,3 +47,11 @@ getCommentCount <- function(videoID) {
   data <- fromJSON(url)
   return(data$items$statistics$commentCount)
 }
+
+getURL <- function(videoID) {
+  return(paste0("https://www.youtube.com/watch?v=", videoID))
+}
+
+getImageURL <- function(videoID) {
+  return(paste0("http://img.youtube.com/vi/", videoID, "/0.jpg"))
+}
