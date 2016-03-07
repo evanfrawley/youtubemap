@@ -10,7 +10,7 @@ library(stringr)
 ###############################
 # MAP STUFF
 ###############################
-
+  
 
 build <- function(){
   m <- leaflet() %>% 
