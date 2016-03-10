@@ -16,7 +16,7 @@ shinyServer(function(input, output) {
     
   })
   
-  ouput$vid_data <- eventReactive(input$map_click, {
+  output$vid_data <- eventReactive(input$map_click, {
     location <- input$map_click
     radius <- input$radius
     units <- input$units

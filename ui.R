@@ -1,8 +1,8 @@
 library(shiny)
 
 shinyUI(fluidPage(
-  includeCSS("styles.css"),
-  includeHTML("index.html"),
+  #includeCSS("styles.css"),
+  #includeHTML("index.html"),
 
    
     sidebarPanel(
