@@ -1,3 +1,6 @@
+library(jsonlite)
+library(dplyr)
+
 #Returns the View count of a video given a certain video ID
 getViewCount <- function(videoID) {
   key <- "AIzaSyAFot4QVTGFxQTMZB8_hUxIzOqQQ-WnxQI"
@@ -17,6 +20,8 @@ getLikeCount <- function(videoID) {
   data <- fromJSON(url)
   return(data$items$statistics$likeCount)
 }
+
+#https://www.googleapis.com/youtube/v3/videos?part=statistics&id=2e3UhFodJK0&key=AIzaSyAFot4QVTGFxQTMZB8_hUxIzOqQQ-WnxQI
 
 #Returns the Dislike count of a video given a certain video ID
 getDislikeCount <- function(videoID) {

@@ -1,8 +1,11 @@
 library(shiny)
+library(leaflet)
+library(dplyr)
+library(jsonlite)
 
 shinyUI(fluidPage(
-  includeCSS("styles.css"),
-  includeHTML("index.html"),
+  #includeCSS("styles.css"),
+  #includeHTML("index.html"),
 
    
     sidebarPanel(
@@ -27,7 +30,7 @@ shinyUI(fluidPage(
                   label =  "Select miles or kilometers ", 
                   choices =c("Miles" = "mi", "Kilometers" = "km"),
 
-                  selected = "Miles")
+                  selected = "mi")
 
       ),
     # Main Panel
@@ -36,7 +39,9 @@ shinyUI(fluidPage(
       br(),
       # Panel Tabset
       tabsetPanel(type="tab", 
-                  tabPanel("Map", leafletOutput("map"))
+                  tabPanel("Map", leafletOutput("map")),
+                  tabPanel("Graph", plotlyOutput("graph"))
+                  
 
       )
       

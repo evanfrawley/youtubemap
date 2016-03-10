@@ -5,30 +5,54 @@ library(shiny)
 library(dplyr)
 library(stringr)
 
+source("data.R")
+
 
 ###############################
 # YOUTUBE API STUFF
 ###############################
 
-get_data <- function(location, radius, units, n, search){
+
+#location <- "47.6550,-122.3080"
+#radius <- "5"
+#units <- "mi"
+#n <-5
+#search <- "hi"
+
+get_data <- function(location, radius, units, n, search) {
   
-  search <- search %>% 
-    str_replace(" ", "+")
-  base_url <- "https://www.googleapis.com/youtube/v3/search"
   key <- "AIzaSyAFot4QVTGFxQTMZB8_hUxIzOqQQ-WnxQI"
+  url <- paste0(
+    "https://www.googleapis.com/youtube/v3/search",
+    "?part=snippet",
+    "&location=", location,
+    "&locationRadius=", radius, units,
+    "&maxResults=", n,
+    "&q=", search,
+    "&type=video&fields=items",
+    "&key=", key
+  )
   
-  url <- paste0(base_url,
-                "?part=snippet", 
-                "&location=", location,
-                "&locationRadius=", radius, units,
-                "&maxResults=", n,
-                "&q=", search,
-                "&type=video",
-                "&fields=items",
-                "&key=", key)
+  print(url)
   
-  data <- fromJSON(url) %>% 
-    as.data.frame() %>% 
-    
-  return()
+  data <- fromJSON(url)
+  data <- data$items %>% 
+    as.data.frame()
+  ids <- data$id$videoId
+  names <- testing$snippet$title
+  
+  views <- lapply(ids, getViewCount) %>% 
+    unlist()
+  likes <- lapply(ids, getLikeCount) %>% 
+    unlist()
+  dislikes <- lapply(ids, getDislikeCount) %>% 
+    unlist()
+  
+
+  new <- cbind(names, views, likes, dislikes) %>% 
+    return()
 }
+
+
+
+
