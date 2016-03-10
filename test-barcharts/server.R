@@ -9,9 +9,9 @@ shinyServer(function(input, output) {
   # certain information
   datasetInput <- reactive({
     switch(input$checkGroup,
-           1 == views,
-           2 == likes,
-           3 == dislikes)
+           "views" = ,
+           "likes" = ,
+           "dislikes" = )
   })
   
   # Output bargraph 
@@ -19,15 +19,15 @@ shinyServer(function(input, output) {
     #data <- read.csv(file = "sample.csv", TRUE, sep = ",")
     plot_ly(data, 
             x = head(video,input$bins), 
-            y = datasetInput(), 
+            y = views, 
             type = "bar", 
             marker = list(color = 'orange'),
             name = "Views") %>% 
       layout(title = "Statistics on top videos in region",
              xaxis = list(title = "Youtube Videos"),
              yaxis = list(title = "Count")) %>%
-      add_trace(y = datasetInput(), marker = list(color = 'green'), name = "Likes")
-    #input$checkGroup
+      add_trace(y = likes, marker = list(color = 'green'), name = "Likes") %>% 
+      add_trace(y = dislikes, marker = list(color = 'red'), name = "Dislikes") 
   })
   
   
