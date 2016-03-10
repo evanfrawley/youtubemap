@@ -53,6 +53,5 @@ get_data <- function(location, radius, units, n, search) {
     return()
 }
 
-
-
+testing <- get_data("47.6550,-122.3080", "5", "mi", 5, "hi")
 
