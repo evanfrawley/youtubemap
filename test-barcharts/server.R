@@ -2,13 +2,11 @@ library(shiny)
 library(dplyr)
 library(plotly)
 
-source('get_data.R')
 data <- read.csv(file = "sample.csv", TRUE, sep = ",")
 shinyServer(function(input, output) {
 
   # Output bargraph 
   output$bargraph <- renderPlotly({
-    #data <- read.csv(file = "sample.csv", TRUE, sep = ",")
     plot_ly(data, 
             x = head(video,input$bins), 
             y = views, 
