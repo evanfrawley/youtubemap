@@ -6,8 +6,6 @@ library(jsonlite)
 shinyUI(fluidPage(
   #includeCSS("styles.css"),
   #includeHTML("index.html"),
-
-   
     sidebarPanel(
       
       # Widge 1: Search
@@ -29,7 +27,6 @@ shinyUI(fluidPage(
       radioButtons("units", 
                   label =  "Select miles or kilometers ", 
                   choices =c("Miles" = "mi", "Kilometers" = "km"),
-
                   selected = "mi")
 
       ),
@@ -41,12 +38,7 @@ shinyUI(fluidPage(
       tabsetPanel(type="tab", 
                   tabPanel("Map", leafletOutput("map")),
                   tabPanel("Graph", plotlyOutput("graph"))
-                  
-
       )
-      
     )
-    
-  
   ) 
 )

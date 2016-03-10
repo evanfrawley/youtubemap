@@ -39,7 +39,7 @@ get_data <- function(location, radius, units, n, search) {
   data <- data$items %>% 
     as.data.frame()
   ids <- data$id$videoId
-  names <- testing$snippet$title
+  names <- data$snippet$title
   
   views <- lapply(ids, getViewCount) %>% 
     unlist()
@@ -49,7 +49,7 @@ get_data <- function(location, radius, units, n, search) {
     unlist()
   
 
-  new <- cbind(names, views, likes, dislikes) %>% 
+  new <- as.data.frame(cbind(names, views, likes, dislikes)) %>% 
     return()
 }
 
