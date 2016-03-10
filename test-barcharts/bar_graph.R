@@ -9,15 +9,15 @@ data <- read.csv(file = "sample.csv", TRUE, sep = ",")
 
 plot_ly(data, 
         x = video, 
-        y = data[,2], 
+        y = views, 
         type = "bar", 
         marker = list(color = 'orange'),
         name = "Views") %>% 
   layout(title = "Statistics on top videos in region",
          xaxis = list(title = "Youtube Videos"),
          yaxis = list(title = "Count")) %>% 
-  add_trace(y = data[,3], marker = list(color = 'green'), name = "Likes") %>%
-  add_trace(y = data[,4], marker = list(color = 'red'), name = "Dislikes") 
+  add_trace(y = likes, marker = list(color = 'green'), name = "Likes") %>%
+  add_trace(y = dislikes, marker = list(color = 'red'), name = "Dislikes") 
 
  
   

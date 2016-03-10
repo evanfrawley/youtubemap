@@ -4,6 +4,6 @@ library(dplyr)
 data <- read.csv(file = "sample.csv", TRUE, sep = ",")
 
 # Function will get specific column data
-coldf <- function(colmn) {
-  coldf <- data$colmn
+column_data <- function(colname) {
+  col <- data$colname
 }
