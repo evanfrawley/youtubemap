@@ -19,6 +19,7 @@ shinyServer(function(input, output) {
   
 
 
+
   #data$id$videoId gets vid id
   #data$snippet$title gets title fo the video
   
@@ -27,6 +28,7 @@ shinyServer(function(input, output) {
     
     temp <- input$map_click 
     location <- paste0(temp[[1]], ",", temp[[2]])
+
     radius <- input$radius
     units <- input$units
     n <- input$bins
