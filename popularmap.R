@@ -76,7 +76,7 @@ buildMostPopular <- function(){
   ##Building the Final Map
   m <- leaflet(locationData) %>% 
     addTiles() %>% 
-    addMarkers(popup = paste0(locationData$hover, " Watch Here!: ", locationData$url)) %>%
+    addMarkers(popup = paste0(locationData$hover, "<br/>", locationData$url)) %>%
     return()
 }
 
