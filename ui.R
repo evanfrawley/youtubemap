@@ -34,38 +34,34 @@ library(plotly)
   # Tabs to select map, bar chart or list of results. Shows statistics like views, 
   # likes and dislikes 
     body <- dashboardBody(
-      tags$head(tags$style(HTML('
-            .main-header .logo {
-                                font-family: "Rancho";
-                                font-style: normal;
-                                font-weight: 400;
-                                src: local("Rancho"), url(https://fonts.gstatic.com/s/rancho/v6/yJONObwbYmkcfKME0p1HqevvDin1pK8aKteLpeZ5c0A.woff2) format("woff2");
-                                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-                                }
-                                .font-effect-shadow-multiple {
-                                text-shadow: .04em .04em 0 #fff,.08em .08em 0 #aaa;
-                                -webkit-text-shadow: .04em .04em 0 #fff, .08em .08em 0 #aaa;
-                                }
-                  
-                                }
-                                '))),
-      
+
       fluidRow(
-        tabBox(
+        box(
+          title = strong("About Youtube Map"), width = 12, background = "light-blue",
+          "The purpose of this application is to show users what youtube videos are being 
+          posted in what areas of the world. We offer three key features to explore various 
+          questions about data on youtube videos"),
+        
+        box(
+          title = strong("Map"), width = 4, background = "teal",
+          "A user can click on any locaton and see statistics on the videos that were posted in that area"),
+        
+        box(
+          title = strong("Graph"), width = 4, background = "yellow",
+          "A user can see the statistics on the top videos of the region the user clicked in the map tab."),
+
+        box(
+          title = strong("Popular Map"), width = 4, background = "red",
+          "A user can view where some of the most popular videos in the world were posted."),
+      
+        
+        tabsetPanel(
           id = "tabset1", width = "100px", height = "500px",
           tabPanel("Map", leafletOutput("map")),
           tabPanel("Popular Map", leafletOutput("popularmap")),
           tabPanel("Graph", plotlyOutput("graph"))
-        ),
+        )
         
-        # Views statistic 
-        infoBox("Views", icon = icon("television"), color = 'teal', fill = TRUE),
-        
-        # Likes statistic
-        infoBox("Likes", icon = icon("thumbs-up"), color = 'red', fill = TRUE),
-        
-        # Dislikes    
-        infoBox("Dislikes", icon = icon("thumbs-down"), fill = TRUE)
         
     )
     )
