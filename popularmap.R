@@ -7,7 +7,7 @@ library(leaflet)
 library(plotly)
 library(stringr)
 
-source("script.R")
+source("script.r")
 source("data.r")
 
 ###############################

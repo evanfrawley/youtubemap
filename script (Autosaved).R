@@ -5,7 +5,7 @@ library(shiny)
 library(dplyr)
 library(stringr)
 
-source("data.R")
+source("data.r")
 
 
 ###############################

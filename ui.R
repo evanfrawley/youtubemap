@@ -58,8 +58,9 @@ library(plotly)
         tabsetPanel(
           id = "tabset1", width = "100px", height = "500px",
           tabPanel("Map", leafletOutput("map")),
-          tabPanel("Popular Map", leafletOutput("popularmap")),
-          tabPanel("Graph", plotlyOutput("graph"))
+          tabPanel("Graph", plotlyOutput("graph")),
+          tabPanel("Popular Map", leafletOutput("popularmap"))
+          
         )
         
         

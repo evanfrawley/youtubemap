@@ -4,11 +4,9 @@ library(dplyr)
 library(jsonlite)
 library(plotly)
 
-source("buildmap.R")
-source("script.R")
-source("popularmap.R")
-
-
+source("buildmap.r")
+source("script.r")
+source("popularmap.r")
 
 
 shinyServer(function(input, output) {
