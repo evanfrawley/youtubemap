@@ -8,12 +8,19 @@ library(plotly)
 
 source("buildmap.R")
 source("script.R")
+source("popularmap.R")
 
 shinyServer(function(input, output) {
   
   output$map <- renderLeaflet({
     
     build()
+    
+  })
+  
+  output$popularmap <- renderLeaflet({
+    
+    buildMostPopular()
     
   })
   

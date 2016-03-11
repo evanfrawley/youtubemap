@@ -37,6 +37,7 @@ shinyUI(fluidPage(
       # Panel Tabset
       tabsetPanel(type="tab", 
                   tabPanel("Map", leafletOutput("map")),
+                  tabPanel("Popular Map", leafletOutput("popularmap")),
                   tabPanel("Graph", plotlyOutput("graph"))
       )
     )
