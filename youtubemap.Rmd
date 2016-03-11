@@ -1,20 +1,37 @@
 ---
-title: "youtubemap"
+title: "Youtube Map"
 runtime: shiny
 output: html_document
 ---
 
-#Interactive map of youtube Videos
+##Interactive map of youtube Videos
 
-In this app we ask you to search any youtube video by its video ID, and we will tell you all sorts of information about it.  
+In this app you can look at any place in the country and see what the top youtube videos are!
 
 
-```{r, echo=FALSE}
-#shinyAppDir(
-  #system.file("youtubemap/ui.R", package="shiny")
-#)
+
+* Click on _Map_ and specify your search to find the top videos in a selected area. 
+
+* Click on _Popular Map_ to see the locations of the most popular videos on Youtube. 
+
+* Click on _Graph_ to see the number of likes, dislikes, and views of each video in your selected area.  
+
+
+```{r, echo=FALSE, message=FALSE}
+
+#runApp(appDir = "/Users/LukeCommins/Documents/info498f/youtubemap")
+library(plotly)
+
+shinyAppDir(
+  Sys.glob("/Users/LukeCommins/Documents/info498f/youtubemap"),
+  options=list(
+    width="100%", height=550
+  )
+)
+
 ```
 
+Click [here](https://developers.google.com/youtube/v3/getting-started#intro) for more information about youtube's APIs.
 
 
 
