@@ -46,27 +46,27 @@ buildMostPopular <- function(){
   locationData <- na.omit(data.frame(lat = data$recordingDetails.location.latitude, 
                              lng = data$recordingDetails.location.longitude,
                              hover = data$snippet.title,
-                             url = getURL(data$id)
+                             url = paste0("<a href=", (data$id), ">Watch Video</a>")
                              ))
   locationData2 <- na.omit(data.frame(lat = data2$recordingDetails.location.latitude, 
                                      lng = data2$recordingDetails.location.longitude,
                                      hover = data2$snippet.title,
-                                     url = getURL(data2$id)
+                                     url = paste0("<a href=", getURL(data2$id), ">Watch Video</a>")
                                       ))
   locationData3 <- na.omit(data.frame(lat = data3$recordingDetails.location.latitude, 
                                      lng = data3$recordingDetails.location.longitude,
                                      hover = data3$snippet.title,
-                                     url = getURL(data3$id)
+                                     url = paste0("<a href=", getURL(data3$id), ">Watch Video</a>")
   ))
   locationData4 <- na.omit(data.frame(lat = data4$recordingDetails.location.latitude, 
                                      lng = data4$recordingDetails.location.longitude,
                                      hover = data4$snippet.title,
-                                     url = getURL(data4$id)
+                                     url = paste0("<a href=", getURL(data4$id), ">Watch Video</a>")
   ))
   locationData5 <- na.omit(data.frame(lat = data5$recordingDetails.location.latitude, 
                                      lng = data5$recordingDetails.location.longitude,
                                      hover = data5$snippet.title,
-                                     url = getURL(data5$id)
+                                     url = paste0("<a href=", getURL(data5$id), ">Watch Video</a>")
   ))
 
   
