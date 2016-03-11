@@ -1,0 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700&subset=latin,latin-ext,cyrillic);
+@import url('demo.css');
+@import url('font-awesome.css');
+
+.main-header .logo {
+  font-family: "Georgia", Times, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 40px;
+}
