@@ -40,11 +40,11 @@ library(plotly)
           title = strong("About Youtube Map"), width = 12, background = "light-blue",
           "The purpose of this application is to show users what youtube videos are being 
           posted in what areas of the world. We offer three key features to explore various 
-          questions about data on youtube videos"),
+          questions about data on youtube videos."),
         
         box(
           title = strong("Map"), width = 4, background = "teal",
-          "A user can click on any locaton and see statistics on the videos that were posted in that area"),
+          "A user can click on any locaton and see statistics on the videos that were posted in that area."),
         
         box(
           title = strong("Graph"), width = 4, background = "yellow",
