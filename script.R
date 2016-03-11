@@ -38,9 +38,9 @@ get_data <- function(location, radius, units, n, search) {
   data <- fromJSON(url)
   data <- data$items %>% 
     as.data.frame()
+    
   ids <- data$id$videoId
   names <- data$snippet$title
-  
   views <- lapply(ids, getViewCount) %>% 
     unlist()
   likes <- lapply(ids, getLikeCount) %>% 
