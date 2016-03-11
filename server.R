@@ -1,16 +1,60 @@
-server <- function(input, output) {
-  output$progressBox <- renderValueBox({
-    valueBox(
-      paste0(25 + input$count, "%"), "Progress", icon = icon("list"),
-      color = "purple"
-    )
+library(shiny)
+library(leaflet)
+library(dplyr)
+library(jsonlite)
+library(plotly)
+
+source("buildmap.R")
+source("script.R")
+source("popularmap.R")
+
+
+
+
+shinyServer(function(input, output) {
+  
+  output$map <- renderLeaflet({
+    
+    build()
+    
   })
   
-  output$approvalBox <- renderValueBox({
-    valueBox(
-      "80%", "Approval", icon = icon("thumbs-up", lib = "glyphicon"),
-      color = "yellow"
-    )
+  output$popularmap <- renderLeaflet({
+    
+    buildMostPopular()
+    
   })
-}
+  #data$id$videoId gets vid id
+  #data$snippet$title gets title fo the video
+  
+  
+  output$graph <- renderPlotly({
+    
+    temp <- input$map_click 
+    location <- paste0(temp[[1]], ",", temp[[2]])
 
+    radius <- input$radius
+    units <- input$units
+    n <- input$bins
+    search <- input$search
+    
+    df <- get_data(location,
+             radius, units,
+             n,
+             search)
+
+    plot_ly(df, 
+            x = head(names, input$bins), 
+            y = views, 
+            type = "bar", 
+            marker = list(color = 'orange'),
+            name = "Views") %>% 
+      layout(title = "Statistics on top videos in region",
+             xaxis = list(title = "Youtube Videos"),
+             yaxis = list(title = "Count")) %>%
+      add_trace(y = likes, marker = list(color = 'green'), name = "Likes") %>% 
+      add_trace(y = dislikes, marker = list(color = 'red'), name = "Dislikes") 
+    
+    
+  })
+})
